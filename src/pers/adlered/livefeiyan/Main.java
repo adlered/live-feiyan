@@ -1,11 +1,6 @@
 package pers.adlered.livefeiyan;
 
-import pers.adlered.livefeiyan.inputstream_tostring.main.InputStreamToString;
-import pers.adlered.livefeiyan.post_http_or_https.main.PostHttpOrHttps;
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.security.GeneralSecurityException;
+import pers.adlered.livefeiyan.cache.Logger;
 
 /**
  * <h3>live-feiyan</h3>
@@ -16,21 +11,22 @@ import java.security.GeneralSecurityException;
  **/
 public class Main {
     public static void main(String[] args) {
-        try {
-            BufferedInputStream bufferedInputStream = PostHttpOrHttps.get("https://3g.dxy.cn/newh5/view/pneumonia", null);
-            String data = InputStreamToString.convert(bufferedInputStream);
-            // 截取数据位置
-            String start1 = "try \\{ window.getAreaStat = \\[";
-            String start2 = "try \\{ window.getStatisticsService = ";
-            String stop = "\\]\\}catch\\(e\\)\\{\\}</script>";
+        while (true) {
+            System.out.println("\n" + "[Live-FeiYan] https://github.com/AdlerED");
+            System.out.println("[Live-FeiYan] Please wait...");
+            StringBuilder stringBuilder = new Print().getString();
+            System.out.println("[Live-FeiYan] Fighting, China!\n");
+            Main.sleep(1000);
+            Logger logger = new Logger(stringBuilder, 50);
+            logger.print();
+        }
+    }
 
-            String p1 = data.split(start1)[1].split(stop)[0];
-            String p2 = data.split(start2)[1].split(stop)[0];
-            System.out.println(p2);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (GeneralSecurityException e) {
-            e.printStackTrace();
+    public static void sleep(int time) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException IE) {
+            IE.printStackTrace();
         }
     }
 }
