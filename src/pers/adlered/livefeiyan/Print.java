@@ -22,7 +22,7 @@ import java.util.List;
  * @date : 2020-01-29 20:11
  **/
 public class Print {
-    public StringBuilder getString() {
+    public StringBuilder getString() throws ArrayIndexOutOfBoundsException, NullPointerException {
         synchronized (this) {
             StringBuilder stringBuilder = new StringBuilder();
             BufferedInputStream bufferedInputStream = null;

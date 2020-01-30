@@ -30,7 +30,7 @@ public class InputStreamToString {
         return sb.toString();
     }
 
-    public static String convert(BufferedInputStream bufferedInputStream) {
+    public static String convert(BufferedInputStream bufferedInputStream) throws NullPointerException {
         StringBuilder sb = new StringBuilder();
         try {
             byte[] bytes = new byte[1024];
