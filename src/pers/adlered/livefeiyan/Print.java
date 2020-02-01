@@ -27,7 +27,7 @@ public class Print {
             StringBuilder stringBuilder = new StringBuilder();
             BufferedInputStream bufferedInputStream = null;
             try {
-                bufferedInputStream = PostHttpOrHttps.get("http://3g.dxy.cn/newh5/view/pneumonia", null);
+                bufferedInputStream = PostHttpOrHttps.get("http://ncov.dxy.cn/ncovh5/view/pneumonia", null);
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (GeneralSecurityException e) {
